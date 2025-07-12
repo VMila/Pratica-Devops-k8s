@@ -1,0 +1,4 @@
+bike-app:
+  replicaCount: 3
+  image:
+    tag: "latest"

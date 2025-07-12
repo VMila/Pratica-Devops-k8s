@@ -1,0 +1,6 @@
+dependencies:
+- name: bike-app
+  repository: file://./charts/bike-app
+  version: 0.1.0
+digest: sha256:a64840f1e6849c15008ffa799dd1909a49530ac4fcad33c5d28f9dc885dbd49f
+generated: "2025-07-12T01:18:35.7536822-03:00"

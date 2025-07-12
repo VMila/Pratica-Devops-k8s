@@ -1,0 +1,10 @@
+replicaCount: 1
+image:
+  repository: bike-app
+  pullPolicy: IfNotPresent
+  tag: "stable"
+
+containerPort: 8080
+
+service:
+  port: 8080
