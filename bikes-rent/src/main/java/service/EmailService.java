@@ -9,7 +9,7 @@ public class EmailService {
     public static void sendWelcomeEmail(String to) {
          System.getLogger("emdiajd").log(System.Logger.Level.INFO, "dentro doe mail");
         Properties props = new Properties();
-        props.put("mail.smtp.host", "mailhog"); 
+        props.put("mail.smtp.host", System.getenv("MAIL_HOST")); 
         props.put("mail.smtp.port", "1025"); 
 
         Session session = Session.getInstance(props);

@@ -1,0 +1,9 @@
+replicaCount: 1
+image:
+  repository: "mailhog/mailhog"
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  smtpPort: 1025
+  httpPort: 8025

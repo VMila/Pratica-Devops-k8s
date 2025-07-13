@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-service
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ .Release.Name }}-{{ .Chart.Name }}
+  ports:
+  - name: smtp
+    port: {{ .Values.service.smtpPort }}
+    targetPort: smtp
+  - name: http
+    port: {{ .Values.service.httpPort }}
+    targetPort: http

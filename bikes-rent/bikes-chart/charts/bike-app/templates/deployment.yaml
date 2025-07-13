@@ -35,6 +35,8 @@ spec:
             secretKeyRef:
               name: "{{ .Release.Name }}-db-secret"
               key: MYSQL_PASSWORD
+        - name: MAIL_HOST
+          value: "{{ .Release.Name }}-mailhog-service"
         - name: TZ
           value: America/Sao_Paulo
         - name: LC_ALL
@@ -45,8 +47,8 @@ spec:
           value: pt_BR.UTF-8
         resources:
           requests:
-            memory: "1Gi"
-            cpu: "1"
+            memory: "512Mi"
+            cpu: "0.5"     
           limits:
-            memory: "2Gi"
-            cpu: "2"
+            memory: "1Gi"   
+            cpu: "1"        

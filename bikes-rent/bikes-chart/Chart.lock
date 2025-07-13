@@ -5,5 +5,8 @@ dependencies:
 - name: db
   repository: file://./charts/db
   version: 0.1.0
-digest: sha256:440bb9123c6f8096b06c8e458b341f85a329f647c9e533f7a00b2c9507b49277
-generated: "2025-07-12T21:46:59.1946182-03:00"
+- name: mailhog
+  repository: file://./charts/mailhog
+  version: 0.1.0
+digest: sha256:af92e928f9306e457a71ac78f114366df1559923d5646c4ecd48a136f7898dcb
+generated: "2025-07-13T15:56:27.2648237-03:00"
