@@ -2,3 +2,7 @@ bike-app:
   replicaCount: 3
   image:
     tag: "latest"
+
+ingress:
+  enabled: true
+  host: k8s.local

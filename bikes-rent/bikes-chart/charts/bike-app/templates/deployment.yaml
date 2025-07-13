@@ -16,8 +16,37 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-          - containerPort: {{ .Values.containerPort }}
-        env: []
+        - containerPort: {{ .Values.containerPort }}
+        env:
+        - name: DB_HOST
+          value: "{{ .Release.Name }}-db-service"
+        - name: DB_NAME
+          value: "bikeRentSystem"
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Release.Name }}-db-secret"
+              key: MYSQL_USER
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Release.Name }}-db-secret"
+              key: MYSQL_PASSWORD
+        - name: TZ
+          value: America/Sao_Paulo
+        - name: LC_ALL
+          value: pt_BR.UTF-8
+        - name: LANG
+          value: pt_BR.UTF-8
+        - name: LANGUAGE
+          value: pt_BR.UTF-8
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "1"
+          limits:
+            memory: "2Gi"
+            cpu: "2"

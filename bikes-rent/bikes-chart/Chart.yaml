@@ -9,3 +9,6 @@ dependencies:
   - name: "bike-app"
     version: "0.1.0"
     repository: "file://./charts/bike-app"
+  - name: "db"
+    version: "0.1.0"
+    repository: "file://./charts/db"
