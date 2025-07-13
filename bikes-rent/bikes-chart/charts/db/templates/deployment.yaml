@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-db
-  labels:
-    app: {{ .Release.Name }}-db
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -17,8 +15,8 @@ spec:
         app: {{ .Release.Name }}-db
     spec:
       containers:
-      - name: {{ .Release.Name }}-db
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      - name: mysql-db
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 3306
@@ -46,7 +44,13 @@ spec:
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
+        - name: init-db-script-volume
+          mountPath: /docker-entrypoint-initdb.d
+          readOnly: true
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-db-pvc
+      - name: init-db-script-volume
+        configMap:
+          name: {{ .Release.Name }}-db-init-script
