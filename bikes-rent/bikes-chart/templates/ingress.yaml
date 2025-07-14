@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: {{ .Values.ingress.host | quote }}
+  - host: k8s.local
     http:
       paths:
       - path: /
@@ -18,4 +18,14 @@ spec:
             name: {{ .Release.Name }}-bike-app-service
             port: 
               number: 8080
+  - host: mail.k8s.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: {{ .Release.Name }}-mailhog-service
+            port: 
+              number: 8025
 {{- end }}
