@@ -6,3 +6,5 @@ bike-app:
 ingress:
   enabled: true
   host: k8s.local
+  mailhog:
+    host: mail.k8s.local
