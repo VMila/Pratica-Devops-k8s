@@ -26,7 +26,7 @@ cd bikes-chart
 echo ">>> Habilitando ingress."
 minikube addons enable ingress
 
-echo ">>> Esperando o Ingress Controller ficar pronto (pode demorar um pouco)..."
+echo ">>> Esperando o Ingress Controller ficar pronto"
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
   --selector=app.kubernetes.io/component=controller \
