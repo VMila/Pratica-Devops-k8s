@@ -28,6 +28,7 @@ Para depois acessar a aplicação em http://localhost:8080 e http://localhost:80
 # Observação
 
 É necessário configurar o host da sua aplicação local
+
 Para isso, obtenha o ip minikube com:
 ``` Shell
 minikube ip
@@ -37,5 +38,6 @@ Adicione o ip obtido no arquivo com
 sudo vim /etc/hosts
 ```
 {ip obtido} k8s.local
+
 {ip obtido} mail.k8s.local
 
