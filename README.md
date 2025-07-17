@@ -34,6 +34,8 @@ minikube ip
 ```
 Adicione o ip obtido no arquivo com 
 ``` Shell
+sudo vim /etc/hosts
+```
 {ip obtido} k8s.local
 {ip obtido} mail.k8s.local
-```
+
