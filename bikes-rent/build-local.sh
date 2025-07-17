@@ -21,6 +21,7 @@ docker images | grep bike-app
 echo ""
 echo ">>> Processo concluído! A imagem 'bike-app:latest' está pronta para ser usada pelo K8s."
 
+cd "$(dirname "$0")"
 cd bikes-chart
 
 echo ">>> Habilitando ingress."
@@ -39,4 +40,9 @@ echo ">>> Instalando bike-release."
 helm upgrade bike-release . --install
 
 echo ""
-echo ">>> Build concluído!"
+echo ">>> Aguardando todos os contêineres ficarem prontos"
+
+kubectl rollout status deployment/bike-release-db --timeout=300s
+kubectl rollout status deployment/bike-release-mailhog --timeout=300s
+kubectl rollout status deployment/bike-release-bike-app --timeout=300s
+ke-release . --install
