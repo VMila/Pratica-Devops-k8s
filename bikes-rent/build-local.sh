@@ -45,4 +45,5 @@ echo ">>> Aguardando todos os contêineres ficarem prontos"
 kubectl rollout status deployment/bike-release-db --timeout=300s
 kubectl rollout status deployment/bike-release-mailhog --timeout=300s
 kubectl rollout status deployment/bike-release-bike-app --timeout=300s
-ke-release . --install
+
+echo "✅ Build concluído!"
